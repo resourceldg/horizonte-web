@@ -47,5 +47,5 @@ vercel        # desde la raíz del proyecto
 
 - El formulario de contacto no requiere backend: arma el mensaje y abre WhatsApp (`wa.me`) con el texto ya redactado. El número está en `WHATSAPP_NUMBER` (`js/main.js`). Si más adelante se quiere un envío real por email, se puede migrar a Vercel Functions o un servicio como Formspree sin cambiar el diseño.
 - Tipografías servidas desde Google Fonts; no hace falta instalar nada localmente.
-- Las meta tags Open Graph usan URLs **absolutas** apuntando a `https://horizonte-web.vercel.app`. Al conectar un dominio propio hay que actualizar `og:url`, `og:image`, `twitter:image` y `<link rel="canonical">` en `index.html`.
+- Las meta tags Open Graph usan URLs **absolutas** apuntando a `https://horizonteconsulting.vercel.app`. Al conectar un dominio propio hay que actualizar `og:url`, `og:image`, `twitter:image` y `<link rel="canonical">` en `index.html`.
 - Probado para navegadores modernos; respeta `prefers-reduced-motion`.
