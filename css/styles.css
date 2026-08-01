@@ -207,14 +207,24 @@ a { color: inherit; }
   margin-bottom: 4rem;
 }
 .hero__horizon {
+  position: relative;
   color: var(--azul);
   opacity: 0.5;
   margin-inline: calc(50% - 50vw);
-}
-.hero__horizon svg {
-  display: block;
-  width: 100%;
   height: clamp(90px, 16vw, 180px);
+  border-bottom: 2px solid currentColor;
+}
+/* Alto fijo y ancho automático: el sol conserva su proporción y apoya
+   sobre la línea sin recortarse, sea cual sea el ancho de la pantalla. */
+.hero__horizon svg {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  height: 100%;
+  width: auto;
+  overflow: visible;
 }
 .hero__sun {
   animation: sunrise 2.4s ease-out both;
