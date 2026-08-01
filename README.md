@@ -6,12 +6,24 @@ Sitio estático en HTML + CSS + JavaScript, sin dependencias de build ni framewo
 
 ## Estructura
 
-```
+```text
 ├── index.html        # Página única (landing)
 ├── css/styles.css    # Estilos (sistema de diseño de marca)
-├── js/main.js        # Menú móvil, animaciones, formulario (mailto)
+├── js/main.js        # Menú móvil, animaciones, formulario (WhatsApp)
 ├── assets/favicon.svg
+├── assets/og.png        # Imagen de preview al compartir (1200×630)
+├── assets/og.source.html # Fuente de la que se genera og.png
 └── README.md
+```
+
+### Regenerar la imagen de preview
+
+`assets/og.png` se renderiza desde `assets/og.source.html` con Chrome headless:
+
+```bash
+google-chrome --headless --disable-gpu --hide-scrollbars \
+  --window-size=1200,630 --screenshot=assets/og.png \
+  --virtual-time-budget=6000 assets/og.source.html
 ```
 
 ## Despliegue en Vercel
@@ -33,6 +45,7 @@ vercel        # desde la raíz del proyecto
 
 ## Notas
 
-- El formulario de contacto usa `mailto:` (no requiere backend). Si más adelante se quiere un envío real, se puede migrar a Vercel Functions o un servicio como Formspree sin cambiar el diseño.
+- El formulario de contacto no requiere backend: arma el mensaje y abre WhatsApp (`wa.me`) con el texto ya redactado. El número está en `WHATSAPP_NUMBER` (`js/main.js`). Si más adelante se quiere un envío real por email, se puede migrar a Vercel Functions o un servicio como Formspree sin cambiar el diseño.
 - Tipografías servidas desde Google Fonts; no hace falta instalar nada localmente.
+- Las meta tags Open Graph usan URLs **absolutas** apuntando a `https://horizonte-web.vercel.app`. Al conectar un dominio propio hay que actualizar `og:url`, `og:image`, `twitter:image` y `<link rel="canonical">` en `index.html`.
 - Probado para navegadores modernos; respeta `prefers-reduced-motion`.

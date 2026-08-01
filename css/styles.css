@@ -25,7 +25,11 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  /* Altura del nav sticky, para que los anclas no queden tapados */
+  scroll-padding-top: 72px;
+}
 
 body {
   font-family: var(--font-body);
@@ -62,6 +66,7 @@ a { color: inherit; }
 }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
+  .hero__sun { animation: none; }
   html { scroll-behavior: auto; }
 }
 
@@ -330,7 +335,6 @@ a { color: inherit; }
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 2rem;
-  counter-reset: paso;
 }
 .step {
   border-top: 1px solid var(--linea-luz);
