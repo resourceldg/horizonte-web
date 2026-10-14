@@ -463,6 +463,7 @@ a { color: inherit; }
   color: var(--crema);
   text-decoration: none;
   border-bottom: 2px solid var(--azul);
+  overflow-wrap: anywhere;
   transition: color 0.2s ease;
 }
 .contact__mail:hover { color: #9DB8D2; }
